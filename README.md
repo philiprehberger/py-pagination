@@ -3,6 +3,7 @@
 [![Tests](https://github.com/philiprehberger/py-pagination/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/py-pagination/actions/workflows/publish.yml)
 [![PyPI version](https://img.shields.io/pypi/v/philiprehberger-pagination.svg)](https://pypi.org/project/philiprehberger-pagination/)
 [![License](https://img.shields.io/github/license/philiprehberger/py-pagination)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
 
 Cursor and offset pagination utilities for any data source.
 
