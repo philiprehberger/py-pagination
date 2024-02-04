@@ -70,3 +70,22 @@ class TestCursorPage:
         assert page.items == []
         assert page.next_cursor is None
         assert page.has_more is False
+
+
+class TestToDict:
+    def test_page_to_dict(self) -> None:
+        page = paginate(list(range(50)), page=1, per_page=10)
+        d = page.to_dict()
+        assert d["items"] == list(range(10))
+        assert d["total"] == 50
+        assert d["pages"] == 5
+        assert d["has_next"] is True
+        assert d["has_prev"] is False
+
+    def test_cursor_page_to_dict(self) -> None:
+        items = [{"id": i} for i in range(5)]
+        page = CursorPage.encode(items, key="id", limit=10)
+        d = page.to_dict()
+        assert d["items"] == items
+        assert d["has_more"] is False
+        assert "next_cursor" in d
