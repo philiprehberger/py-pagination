@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "philiprehberger-pagination"
-version = "0.1.0"
+version = "0.1.1"
 description = "Cursor and offset pagination utilities for any data source."
 readme = "README.md"
 license = "MIT"
@@ -24,9 +24,16 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/philiprehberger/py-pagination"
+Homepage = "https://github.com/philiprehberger/py-pagination#readme"
 Repository = "https://github.com/philiprehberger/py-pagination"
 Issues = "https://github.com/philiprehberger/py-pagination/issues"
+Changelog = "https://github.com/philiprehberger/py-pagination/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/philiprehberger_pagination"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+strict = true
