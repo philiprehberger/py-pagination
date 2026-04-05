@@ -37,6 +37,18 @@ class Page:
         """Whether a previous page exists."""
         return self.page > 1
 
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize page to a dictionary."""
+        return {
+            "items": list(self.items),
+            "total": self.total,
+            "page": self.page,
+            "per_page": self.per_page,
+            "pages": self.pages,
+            "has_next": self.has_next,
+            "has_prev": self.has_prev,
+        }
+
 
 def paginate(items: Sequence[Any], *, page: int = 1, per_page: int = 25) -> Page:
     """Paginate a list or sequence using offset-based pagination.
@@ -102,6 +114,14 @@ class CursorPage:
             next_cursor = None
 
         return cls(items=page_items, next_cursor=next_cursor, has_more=has_more)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize cursor page to a dictionary."""
+        return {
+            "items": list(self.items),
+            "next_cursor": self.next_cursor,
+            "has_more": self.has_more,
+        }
 
     @staticmethod
     def decode(cursor: str) -> dict[str, Any]:
